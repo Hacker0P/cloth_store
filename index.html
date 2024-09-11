@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Like Collection - Men's Clothing Store</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -12,34 +14,98 @@
         <div class="container">
             <h1>City Like Collection</h1>
             <p>Your one-stop shop for men's fashion</p>
+            <!-- Navigation Menu -->
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Customer Reviews</a></li>
+                    <li><a href="#newsletter">Newsletter Signup</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Product Section -->
     <section id="products">
         <div class="container">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
             <h2>Our Collection</h2>
             <div class="product-grid">
                 <!-- T-Shirt Item -->
-                <div class="product-item">
+                <div class="product-item" data-category="t-shirts">
                     <img src="images/t-shirts.jpg" alt="T-Shirt">
                     <h3>T-Shirts</h3>
                     <p>Cool and comfortable t-shirts for everyday wear.</p>
                 </div>
                 <!-- Shirt Item -->
-                <div class="product-item">
+                <div class="product-item" data-category="shirts">
                     <img src="images/shirt.jpeg" alt="Shirt">
                     <h3>Shirts</h3>
                     <p>Formal and casual shirts in various styles.</p>
                 </div>
                 <!-- Jeans Item -->
-                <div class="product-item">
+                <div class="product-item" data-category="jeans">
                     <img src="images/jeans.jpg" alt="Jeans">
                     <h3>Jeans</h3>
                     <p>Stylish and comfortable jeans for every occasion.</p>
                 </div>
-                <!-- Add more products as needed -->
             </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>Welcome to City Like Collection, your premier destination for stylish and high-quality men's fashion. Our mission is to provide you with the latest trends and classic pieces that make you look and feel great. We are dedicated to offering exceptional customer service and a seamless shopping experience. Thank you for choosing us!</p>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-item">
+                    <h3>Rohan Dutta</h3>
+                    <p>Excellent service and high-quality products. Will definitely shop here again!</p>
+                </div>
+                <div class="review-item">
+                    <h3>Arbaz Alam</h3>
+                    <p>Love the style and comfort of the clothes. Great experience overall.</p>
+                </div>
+            </div>
+            <!-- Review Form -->
+            <div class="review-form">
+                <h3>Leave a Review</h3>
+                <form id="review-form">
+                    <div class="form-group">
+                        <input type="text" id="review-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="review-text" placeholder="Your Review" required></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section id="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Sign up for our newsletter to receive the latest updates and exclusive offers.</p>
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
 
@@ -57,6 +123,12 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 City Like Collection. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://facebook.com/yourprofile" target="_blank" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/yourprofile" target="_blank" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/yourprofile" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/yourprofile" target="_blank" title="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </footer>
 
