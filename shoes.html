@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes Collection - City Like Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration */
+        .product-item {
+            flex: 1 1 30%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px; /* Default fixed height */
+            object-fit: cover; /* Ensures the image covers the area */
+        }
+
+        .product-item#shoe3 img {
+            height: 250px; /* Increased height for Shoe 3 */
+        }
+
+        .product-item button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .product-item button:hover {
+            background-color: #0056b3;
+        }
+
+        .size-select {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Shoes Collection</h1>
+            <p>Discover our stylish and comfortable range of shoes!</p>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section id="filter">
+        <div class="container">
+            <h2>Filter by Price</h2>
+            <label for="price-range">Price Range: </label>
+            <input type="range" id="price-range" min="800" max="2500" step="100" value="2500" oninput="updatePriceLabel(this.value)">
+            <span id="price-label">2500</span> INR
+        </div>
+    </section>
+
+    <!-- Shoes Products Section -->
+    <section id="shoes-products">
+        <div class="container">
+            <div class="product-grid">
+                <!-- Example Shoe Items -->
+                <div class="product-item" data-price="1000">
+                    <img src="images4/shoes1.jpg" alt="Shoe 1">
+                    <h3>Shoe 1</h3>
+                    <p>Price: 1000 INR</p>
+                    <div class="size-select">
+                        <label for="size-shoe1">Size: </label>
+                        <select id="size-shoe1">
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button onclick="buyItem('Shoe 1', 1000, document.getElementById('size-shoe1').value)">Buy Now</button>
+                </div>
+                <div class="product-item" data-price="1400">
+                    <img src="images4/shoes2.jpg" alt="Shoe 2">
+                    <h3>Shoe 2</h3>
+                    <p>Price: 1400 INR</p>
+                    <div class="size-select">
+                        <label for="size-shoe2">Size: </label>
+                        <select id="size-shoe2">
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button onclick="buyItem('Shoe 2', 1400, document.getElementById('size-shoe2').value)">Buy Now</button>
+                </div>
+                <div class="product-item" id="shoe3" data-price="1800">
+                    <img src="images4/shoes3.jpg" alt="Shoe 3">
+                    <h3>Shoe 3</h3>
+                    <p>Price: 1800 INR</p>
+                    <div class="size-select">
+                        <label for="size-shoe3">Size: </label>
+                        <select id="size-shoe3">
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button onclick="buyItem('Shoe 3', 1800, document.getElementById('size-shoe3').value)">Buy Now</button>
+                </div>
+                <div class="product-item" data-price="2100">
+                    <img src="images4/shoes4.jpg" alt="Shoe 4">
+                    <h3>Shoe 4</h3>
+                    <p>Price: 2100 INR</p>
+                    <div class="size-select">
+                        <label for="size-shoe4">Size: </label>
+                        <select id="size-shoe4">
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button onclick="buyItem('Shoe 4', 2100, document.getElementById('size-shoe4').value)">Buy Now</button>
+                </div>
+                <div class="product-item" data-price="2400">
+                    <img src="images4/shoes5.jpg" alt="Shoe 5">
+                    <h3>Shoe 5</h3>
+                    <p>Price: 2400 INR</p>
+                    <div class="size-select">
+                        <label for="size-shoe5">Size: </label>
+                        <select id="size-shoe5">
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button onclick="buyItem('Shoe 5', 2400, document.getElementById('size-shoe5').value)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        function updatePriceLabel(value) {
+            document.getElementById('price-label').textContent = value;
+            filterProducts(value);
+        }
+
+        function filterProducts(maxPrice) {
+            const productItems = document.querySelectorAll('.product-item');
+            productItems.forEach(item => {
+                const price = parseInt(item.getAttribute('data-price'));
+                if (price <= maxPrice) {
+                    item.style.display = ''; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
+            });
+        }
+
+        function buyItem(name, price, size) {
+            alert(`Thank you for buying ${name} (Size: ${size}) for ${price} INR!`);
+            // Here you can add more functionality, like adding the item to a cart
+        }
+    </script>
+</body>
+</html>

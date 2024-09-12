@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Like Collection (BARABAZAR) - Men's Clothing Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Inline CSS for demonstration */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            flex: 1 1 30%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            border-radius: 8px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px; /* Default fixed height */
+            object-fit: cover; /* Ensures the image covers the area */
+            border-radius: 8px;
+        }
+
+        .product-item#shirt3 img {
+            height: 250px; /* Increased height for Shirt 3 */
+        }
+
+        .product-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transform: scale(1.02);
+        }
+
+        .product-item button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .product-item button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Sign-In Sidebar Styles */
+        .sign-in-sidebar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 250px; /* Smaller width */
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .sign-in-sidebar h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .sign-in-sidebar label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .sign-in-sidebar input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .sign-in-sidebar button {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sign-in-sidebar button:hover {
+            background-color: #0056b3;
+        }
+
+        .sign-in-sidebar .links {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .sign-in-sidebar .links a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .sign-in-sidebar .links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .sign-in-sidebar {
+                width: 90%;
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>City Like Collection <span>(Barabazar)</span></h1>
+            <p>Your one-stop shop for men's fashion</p>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Customer Reviews</a></li>
+                    <li><a href="#newsletter">Newsletter Signup</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <aside class="sign-in-sidebar">
+        <h2>Sign In</h2>
+        <form id="sign-in-form">
+            <label for="email-phone">Email or Phone Number:</label>
+            <input type="text" id="email-phone" name="email-phone" placeholder="Enter your email or phone number" required>
+            <label for="sign-in-password">Password:</label>
+            <input type="password" id="sign-in-password" name="sign-in-password" placeholder="Enter your password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+            <a href="register.html">Create an Account</a>
+        </div>
+    </aside>
+
+    <section id="products">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button onclick="searchProducts()">Search</button>
+                <button id="clear-button">Clear</button>
+            </div>
+            <h2>Our Collection</h2>
+            <div class="product-grid">
+                <div class="product-item" data-category="t-shirts">
+                    <a href="t_shirts.html"></a>
+                    <img src="images/t-shirts.jpg" alt="T-Shirt">
+                    <h3><a href="t_shirts.html">T-Shirts</a></h3>
+                    <p>Cool and comfortable t-shirts for everyday wear.</p>
+                </div>
+                <div class="product-item" data-category="shirts">
+                    <a href="Shirts.html"></a>
+                    <img src="images/shirt.jpeg" alt="Shirt">
+                    <h3><a href="Shirts.html">Shirts</a></h3>
+                    <p>Formal and casual shirts in various styles.</p>
+                </div>
+                <div class="product-item" data-category="jeans">
+                    <a href="jeans.html"></a>
+                    <img src="images/jeans.jpg" alt="Jeans">
+                    <h3><a href="jeans.html">Jeans</a></h3>
+                    <p>Stylish and comfortable jeans for every occasion.</p>
+                </div>
+                <div class="product-item" data-category="Shoes">
+                    <a href="shoes.html"></a>
+                    <img src="images/shoes.jpg" alt="Shoes">
+                    <h3><a href="shoes.html">Shoes</a></h3>
+                    <p>Comfortable and stylish shoes for every occasion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>Welcome to City Like Collection, your premier destination for stylish and high-quality men's fashion. Our mission is to provide you with the latest trends and classic pieces that make you look and feel great. We are dedicated to offering exceptional customer service and a seamless shopping experience. Thank you for choosing us!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="container">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-item">
+                    <h3>Shibam Kundu</h3>
+                    <p>Excellent service and high-quality products. Will definitely shop here again!</p>
+                </div>
+                <div class="review-item">
+                    <h3>Arbaz Alam</h3>
+                    <p>Love the style and comfort of the clothes. Great experience overall.</p>
+                </div>
+            </div>
+            <div class="review-form">
+                <h3>Leave a Review</h3>
+                <form id="review-form">
+                    <div class="form-group">
+                        <input type="text" id="review-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="review-text" placeholder="Your Review" required></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Sign up for our newsletter to receive the latest updates and exclusive offers.</p>
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Shop Owner: Suraj Alam</p>
+            <p>Phone 1: +91 8670566404</p>
+            <p>Phone 2: +91 9382837305</p>
+            <p>Address: Namopara, Barabazar, West Bengal, 723127, Near Jio Store</p>
+            <div class="owner-photos">
+                <img src="images/ownerimg1.jpg" alt="Owner Photo 1" class="owner-photo">
+                <img src="images/ownerimg2.jpg" alt="Owner Photo 2" class="owner-photo">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 City Like Collection (Barabazar). All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/share/xg84AnTrRTAVxJWE/?mibextid=qi2Omg" target="_blank" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/zyan2000a?utm_source=qr&igsh=Ym50eDR6aXI0eWIw" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

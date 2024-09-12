@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirts Collection - City Like Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration */
+        .product-item {
+            flex: 1 1 30%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px; /* Default fixed height */
+            object-fit: cover; /* Ensures the image covers the area */
+        }
+
+        .product-item#shirt3 img {
+            height: 250px; /* Increased height for Shirt 3 */
+        }
+
+        .product-item button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .product-item button:hover {
+            background-color: #0056b3;
+        }
+
+        .sizes {
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>T-Shirts Collection</h1>
+            <p>Discover our collection of stylish and versatile t-shirts!</p>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section id="filter">
+        <div class="container">
+            <h2>Filter by Price</h2>
+            <label for="price-range">Price Range: </label>
+            <input type="range" id="price-range" min="100" max="1000" step="50" value="1000" oninput="updatePriceLabel(this.value)">
+            <span id="price-label">1100</span> INR
+        </div>
+    </section>
+
+    <!-- T-Shirts Products Section -->
+    <section id="shirts-products">
+        <div class="container">
+            <div class="product-grid">
+                <!-- Example T-Shirt Items -->
+                <div class="product-item" data-price="300">
+                    <img src="images2/shirt1.jpg" alt="T-Shirt 1">
+                    <h3>T-Shirt 1</h3>
+                    <p>Price: 300 INR</p>
+                    <div class="sizes">
+                        <strong>Sizes Available:</strong>
+                        <p>Small, Medium, Large, Extra Large</p>
+                    </div>
+                    <button onclick="buyItem('T-Shirt 1', 300)">Buy Now</button>
+                </div>
+                <div class="product-item" data-price="500">
+                    <img src="images2/shirt2.jpg" alt="T-Shirt 2">
+                    <h3>T-Shirt 2</h3>
+                    <p>Price: 500 INR</p>
+                    <div class="sizes">
+                        <strong>Sizes Available:</strong>
+                        <p>Small, Medium, Large, Extra Large</p>
+                    </div>
+                    <button onclick="buyItem('T-Shirt 2', 500)">Buy Now</button>
+                </div>
+                <div class="product-item" id="shirt3" data-price="700">
+                    <img src="images2/shirt3.jpg" alt="T-Shirt 3">
+                    <h3>T-Shirt 3</h3>
+                    <p>Price: 700 INR</p>
+                    <div class="sizes">
+                        <strong>Sizes Available:</strong>
+                        <p>Small, Medium, Large, Extra Large</p>
+                    </div>
+                    <button onclick="buyItem('T-Shirt 3', 700)">Buy Now</button>
+                </div>
+                <div class="product-item" data-price="900">
+                    <img src="images2/shirt4.jpg" alt="T-Shirt 4">
+                    <h3>T-Shirt 4</h3>
+                    <p>Price: 900 INR</p>
+                    <div class="sizes">
+                        <strong>Sizes Available:</strong>
+                        <p>Small, Medium, Large, Extra Large</p>
+                    </div>
+                    <button onclick="buyItem('T-Shirt 4', 900)">Buy Now</button>
+                </div>
+                <div class="product-item" data-price="1100">
+                    <img src="images2/shirt5.jpg" alt="T-Shirt 5">
+                    <h3>T-Shirt 5</h3>
+                    <p>Price: 1100 INR</p>
+                    <div class="sizes">
+                        <strong>Sizes Available:</strong>
+                        <p>Small, Medium, Large, Extra Large</p>
+                    </div>
+                    <button onclick="buyItem('T-Shirt 5', 1100)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        function updatePriceLabel(value) {
+            document.getElementById('price-label').textContent = value;
+            filterProducts(value);
+        }
+
+        function filterProducts(maxPrice) {
+            const productItems = document.querySelectorAll('.product-item');
+            productItems.forEach(item => {
+                const price = parseInt(item.getAttribute('data-price'));
+                if (price <= maxPrice) {
+                    item.style.display = ''; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
+            });
+        }
+
+        function buyItem(name, price) {
+            alert(`Thank you for buying ${name} for ${price} INR!`);
+            // Here you can add more functionality, like adding the item to a cart
+        }
+    </script>
+</body>
+</html>
